@@ -38,7 +38,14 @@ function parser(bookDOM) {
     .replace('Data di pubblicazione:', '')
     .trim();
 
-  book.image = $book.find('img.bc-pub-block').attr('src');
+  book.image = $book.find('img').attr('data-lazyload');
+
+  book.link =
+    'https://www.audible.it' +
+    $book
+      .find('a')
+      .attr('href')
+      .split('?')[0];
 
   book.description = $book
     .find('[data-bodylevel] p')

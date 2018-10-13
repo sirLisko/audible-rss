@@ -10,10 +10,31 @@ const port = process.env.PORT || 3000;
 const url =
   'https://www.audible.it/search?sort=pubdate-desc-rank&pageSize=20&ipRedirectOverride=true&overrideBaseCountry=true';
 
-var feed = new RSS({
+const feed = new RSS({
   title: 'audible it',
   description: 'audible new releases',
   url: 'https://audiblerss.sirlisko.com',
+  custom_namespaces: {
+    media: 'http://search.yahoo.com/mrss/',
+  },
+});
+
+const itemMapper = book => ({
+  title: book.title,
+  description: book.description,
+  author: book.author,
+  date: book.releaseDate,
+  url: book.link,
+  custom_elements: [
+    {
+      'media:content': {
+        _attr: {
+          href: book.image,
+          medium: 'image',
+        },
+      },
+    },
+  ],
 });
 
 app.get('/', (req, res) => {
@@ -22,17 +43,10 @@ app.get('/', (req, res) => {
       Error('origin url problem');
     }
 
-    const books = [];
     var parsedHTML = $.load(html);
     parsedHTML('.productListItem').map((i, bookDOM) => {
       const book = bookParser.parser(bookDOM);
-      books.push(book);
-      feed.item({
-        title: book.title,
-        description: book.description,
-        author: book.author,
-        date: book.releaseDate,
-      });
+      feed.item(itemMapper(book));
     });
 
     res.set('Content-Type', 'text/xml');
