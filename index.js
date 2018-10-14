@@ -14,27 +14,16 @@ const feed = new RSS({
   title: 'audible it',
   description: 'audible new releases',
   url: 'https://audiblerss.sirlisko.com',
-  custom_namespaces: {
-    media: 'http://search.yahoo.com/mrss/',
-  },
 });
 
 const itemMapper = book => ({
   title: book.title,
-  description: book.description,
+  description: `<div><img src="${book.image}" /><p>${
+    book.description
+  }</p></div>`,
   author: book.author,
   date: book.releaseDate,
-  url: book.link,
-  custom_elements: [
-    {
-      'media:content': {
-        _attr: {
-          href: book.image,
-          medium: 'image',
-        },
-      },
-    },
-  ],
+  url: book.url,
 });
 
 app.get('/', (req, res) => {

@@ -40,7 +40,7 @@ function parser(bookDOM) {
 
   book.image = $book.find('img').attr('data-lazyload');
 
-  book.link =
+  book.url =
     'https://www.audible.it' +
     $book
       .find('a')
