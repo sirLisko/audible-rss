@@ -26,7 +26,7 @@ const itemMapper = book => ({
   url: book.url,
 });
 
-app.get('/', (req, res) => {
+app.get('/it', (req, res) => {
   request(url, (err, resp, html) => {
     if (err) {
       Error('origin url problem');
