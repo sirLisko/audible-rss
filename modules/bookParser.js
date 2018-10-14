@@ -32,11 +32,13 @@ function parser(bookDOM) {
     .replace('Durata:', '')
     .trim();
 
-  book.releaseDate = $book
+  const date = $book
     .find('.releaseDateLabel')
     .text()
     .replace('Data di pubblicazione:', '')
-    .trim();
+    .trim()
+    .split(' ');
+  book.releaseDate = new Date(date[2], date[1] - 1, date[0]);
 
   book.image = $book.find('img').attr('data-lazyload');
 
