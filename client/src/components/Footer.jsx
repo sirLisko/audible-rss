@@ -32,7 +32,7 @@ const Footer = () => (
     </span>{' '}
     <span>
       View project source on{' '}
-      <a href="https://github.com/sirLisko/zoommeme">Github</a>.
+      <a href="https://github.com/sirlisko/audible-rss">Github</a>.
     </span>
   </StyledFooter>
 );
