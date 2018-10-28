@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="336px" height="227px" viewBox="0 0 336 227" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>audible-rss logo</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Logo" transform="translate(159.433596, 126.998401) rotate(32.000000) translate(-159.433596, -126.998401) translate(-28.566404, 9.998401)">
+            <polygon id="Path" fill="#F5A623" points="0.0152323496 85.3472184 0.0152323496 117.066994 188.202188 233.951966 375.853828 117.066994 375.853828 85.3472184 187.93453 202.437713"></polygon>
+            <path d="M333.78708,81.0037888 C333.78708,81.0037888 306.662035,97.9533976 306.662035,97.9533976 C186.795792,-49 55.3031861,63.4017125 39.0788542,81.9083005 C76.5150244,18.6408145 229.587151,-63.4498811 333.78708,81.0037888 Z" id="Path-2" fill="#FF9933"></path>
+            <path d="M289.812402,108.648071 C289.812402,108.648071 260.46009,126.989431 260.46009,126.989431 C255.192977,105.192093 170.304998,37.742462 87.8235438,109.520015 C101.031952,70.2245829 213.532471,8.93379071 289.812402,108.648071 Z" id="Path-3" fill="#FF9933"></path>
+            <circle id="Oval" fill="#F5A623" cx="187" cy="146" r="29"></circle>
+        </g>
+    </g>
+</svg>

@@ -5,7 +5,7 @@ const $ = require('cheerio');
 const bookParser = require('./modules/bookParser');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 const url =
   'https://www.audible.it/search?sort=pubdate-desc-rank&pageSize=20&ipRedirectOverride=true&overrideBaseCountry=true';
@@ -25,6 +25,11 @@ const itemMapper = book => ({
   date: book.releaseDate,
   url: book.url,
 });
+
+// Express only serves static assets in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
 
 app.get('/it', (req, res) => {
   request(url, (err, resp, html) => {
