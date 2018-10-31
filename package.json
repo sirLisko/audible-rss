@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "postinstall": "cd client && npm install && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint index.js modules && tape ./test/*.js"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,8 @@
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "prettier": "^1.14.3"
+    "prettier": "^1.14.3",
+    "tape": "^4.9.1"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
