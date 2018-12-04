@@ -40,7 +40,7 @@ function parser(bookDOM) {
     .split(' ');
   book.releaseDate = new Date(date[2], date[1] - 1, date[0]);
 
-  book.image = $book.find('img').attr('data-lazyload');
+  book.image = $book.find('img').attr('src');
 
   book.url =
     'https://www.audible.it' +
