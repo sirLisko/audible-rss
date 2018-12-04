@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const RSS = require('rss');
 const request = require('request');
 const $ = require('cheerio');
@@ -28,7 +29,7 @@ const itemMapper = book => ({
 
 // Express only serves static assets in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+  app.use(express.static(path.join(__dirname, 'client/build')));
 }
 
 app.get('/it', (req, res) => {
