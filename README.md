@@ -1,4 +1,4 @@
-# Audible RSS
+# Audible RSS [![Build Status](https://travis-ci.org/sirLisko/audible-rss.svg?branch=master)](https://travis-ci.org/sirLisko/audible-rss)
 
 <img src="./extras/logo.svg" width="70">
 
