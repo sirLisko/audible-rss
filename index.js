@@ -12,16 +12,19 @@ const url =
   'https://www.audible.it/search?sort=pubdate-desc-rank&pageSize=20&ipRedirectOverride=true&overrideBaseCountry=true';
 
 const feed = new RSS({
-  title: 'audible it',
+  title: 'Audible.it',
   description: 'audible new releases',
   url: 'https://audiblerss.sirlisko.com',
 });
 
 const itemMapper = book => ({
   title: book.title,
-  description: `<div><img src="${book.image}" /><p>${
-    book.description
-  }</p></div>`,
+  description: `<div>
+    <img src="${book.image}" />
+    <p>${book.description}</p>
+    <p><b>Durata: </b>${book.runtime}</p>
+    <p><b><a href="${book.url}">Link</a><b></p>
+  </div>`,
   author: book.author,
   date: book.releaseDate,
   url: book.url,
