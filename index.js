@@ -3,6 +3,7 @@ const path = require('path');
 const RSS = require('rss');
 const request = require('request');
 const $ = require('cheerio');
+
 const bookParser = require('./modules/bookParser');
 
 const app = express();
@@ -42,10 +43,13 @@ app.get('/it', (req, res) => {
     }
 
     var parsedHTML = $.load(html);
+    let newBooks = [];
     parsedHTML('.productListItem').map((i, bookDOM) => {
-      const book = bookParser.parser(bookDOM);
-      feed.item(itemMapper(book));
+      newBooks = [...newBooks, itemMapper(bookParser.parser(bookDOM))];
     });
+    newBooks
+      .filter(book => !feed.items.find(item => item.url === book.url))
+      .forEach(book => feed.item(book));
 
     res.set('Content-Type', 'text/xml');
     res.send(feed.xml());
